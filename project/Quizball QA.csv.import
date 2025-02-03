@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://o7pkrsa104rh"
+
+[deps]
+
+files=["res://Quizball QA.Question1.translation", "res://Quizball QA.Answer1.translation", "res://Quizball QA.Question2.translation", "res://Quizball QA.Answer2.translation", "res://Quizball QA.Question3.translation", "res://Quizball QA.Answer3.translation", "res://Quizball QA.Question 4.translation", "res://Quizball QA.Answer 4.translation", "res://Quizball QA.Question 5.translation", "res://Quizball QA.Answer 5.translation"]
+
+source_file="res://Quizball QA.csv"
+dest_files=["res://Quizball QA.Question1.translation", "res://Quizball QA.Answer1.translation", "res://Quizball QA.Question2.translation", "res://Quizball QA.Answer2.translation", "res://Quizball QA.Question3.translation", "res://Quizball QA.Answer3.translation", "res://Quizball QA.Question 4.translation", "res://Quizball QA.Answer 4.translation", "res://Quizball QA.Question 5.translation", "res://Quizball QA.Answer 5.translation"]
+
+[params]
+
+compress=true
+delimiter=0

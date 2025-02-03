@@ -1,0 +1,164 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3hwe2gd6qxkb"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_nsyki"]
+[ext_resource type="Theme" uid="uid://oapuknnvc7yq" path="res://DefaultTheme.tres" id="1_yn8ge"]
+[ext_resource type="Texture2D" uid="uid://vyr12yblpf7f" path="res://images/oak_floor_tile.jpg" id="2_xw5gc"]
+
+[sub_resource type="Theme" id="Theme_noi8h"]
+
+[sub_resource type="FontVariation" id="FontVariation_yj05b"]
+variation_embolden = 0.5
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nsyki")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xw5gc")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.760784, 0.407843, 0, 0.356863)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="QuestionGrid" type="GridContainer" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="QuestionContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/QuestionGrid"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer"]
+layout_mode = 2
+
+[node name="QuestionText" type="Label" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = SubResource("Theme_noi8h")
+theme_override_fonts/font = SubResource("FontVariation_yj05b")
+theme_override_font_sizes/font_size = 30
+text = "How many..."
+horizontal_alignment = 1
+
+[node name="Category1" type="HBoxContainer" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category1"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_yn8ge")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="Category2" type="HBoxContainer" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category2"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_yn8ge")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="Category3" type="HBoxContainer" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Points" type="Label" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category3"]
+visible = false
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_yn8ge")
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="CategoryBtn" type="Button" parent="CanvasLayer/MarginContainer/QuestionGrid/QuestionContainer/VBox/Category3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "3 points"
+
+[node name="QuestionPopup" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.101961, 0.737255)
+
+[node name="PopupQuestion" type="Button" parent="CanvasLayer/QuestionPopup"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "This is a question."
+
+[node name="PopupAnswer" type="Button" parent="CanvasLayer/QuestionPopup"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "This is a question."
+
+[connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupQuestion" to="." method="_show_answer"]
+[connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupAnswer" to="." method="_hide_question"]
