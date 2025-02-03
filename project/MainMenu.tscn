@@ -181,5 +181,10 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0.964706, 0, 1)
 text = "Success!"
 
+[node name="Base64" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 1151.0
+offset_bottom = 194.0
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_open_fileDialog"]
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_file_dialog_file_selected"]
