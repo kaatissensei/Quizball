@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b65ho8re1k5sl"]
+[gd_scene load_steps=11 format=3 uid="uid://b65ho8re1k5sl"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_dqnks"]
 [ext_resource type="Texture2D" uid="uid://vyr12yblpf7f" path="res://images/oak_floor_tile.jpg" id="2_50wed"]
 [ext_resource type="Theme" uid="uid://cwnr6li75osyp" path="res://mainMenu.tres" id="4_kvm7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsmgq"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yjhw"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj8hn"]
+bg_color = Color(0.372549, 0.372549, 0.372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ho4k"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2lan"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gllf8"]
+bg_color = Color(0.196078, 0.396078, 0.721569, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkgvt"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_dqnks")
@@ -80,6 +113,73 @@ theme_override_constants/outline_size = 30
 bbcode_enabled = true
 text = "[center]Quizball[/center]"
 fit_content = true
+
+[node name="Margin Container" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Margin Container"]
+layout_mode = 2
+
+[node name="Upload Button" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_lsmgq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2yjhw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rj8hn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ho4k")
+text = "Upload File"
+
+[node name="Progress Bar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 151.5
+offset_right = 128.0
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(848, -27.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_b2lan")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gllf8")
+
+[node name="Borders" type="Panel" parent="CanvasLayer/Progress Bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkgvt")
+
+[node name="Success Label" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 550.0
+offset_top = -173.0
+offset_right = 615.0
+offset_bottom = -147.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.964706, 0, 1)
+text = "Success!"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_open_fileDialog"]
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_file_dialog_file_selected"]
