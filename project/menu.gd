@@ -30,16 +30,20 @@ func _on_file_load_started(file_name: String) -> void:
 	success_label.visible = false
 
 func _on_upload_pressed() -> void:
-	file_access_web.open()
+	file_access_web.open(".csv")
 
 func _on_progress(current_bytes: int, total_bytes: int) -> void:
 	var percentage: float = float(current_bytes) / float(total_bytes) * 100
 	progress.value = percentage
 
 func _on_file_loaded(file_name: String, type: String, base64_data: String) -> void:
-	progress.visible = false
+	#progress.visible = false
 	#success_label.visible = true
-	_start()
+	#Main.csvFile = FileAccess.open(path,FileAccess.READ)
+	var raw_data: String = Marshalls.base64_to_utf8(base64_data)
+	Main.csvFile = raw_data
+	Main.parse_csv()
+	get_tree().change_scene_to_file("res://Quiz_scene.tscn")
 
 func _on_error() -> void:
 	push_error("Error!")
