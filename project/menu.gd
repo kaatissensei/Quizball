@@ -33,8 +33,9 @@ func _on_upload_pressed() -> void:
 	file_access_web.open(".csv")
 
 func _on_progress(current_bytes: int, total_bytes: int) -> void:
-	var percentage: float = float(current_bytes) / float(total_bytes) * 100
-	progress.value = percentage
+	pass
+	#var percentage: float = float(current_bytes) / float(total_bytes) * 100
+	#progress.value = percentage
 
 func _on_file_loaded(file_name: String, type: String, base64_data: String) -> void:
 	#progress.visible = false
@@ -43,8 +44,9 @@ func _on_file_loaded(file_name: String, type: String, base64_data: String) -> vo
 	#
 	var utf8_data: String = Marshalls.base64_to_utf8(base64_data)
 	#var string_data: String = base64_data.get_string_from_utf8()
-	
-	Main.csvFile = utf8_data
+	var file = FileAccess.open("user://CSV.csv", FileAccess.WRITE)
+	file.store_string(utf8_data)
+	Main.csvFile = FileAccess.open("user://CSV.csv", FileAccess.READ)
 	Main.parse_csv()
 	get_tree().change_scene_to_file("res://Quiz_scene.tscn")
 

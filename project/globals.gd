@@ -15,6 +15,10 @@ func parse_csv():
 		
 	questionArray.pop_front() #Take out titles
 
+func parse_csv_string():
+	questionArray = csvFile.split(",")
+	questionArray.pop_front()
+	
 func popupQuestion(questionText):
 	%QuestionPopup.visible = true
 	%QuestionPopupText.text = questionText

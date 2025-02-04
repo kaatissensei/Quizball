@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Main="*res://globals.gd"
 
+[gui]
+
+theme/custom_font="res://images/ui/NotoSansJP-SemiBold.ttf"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

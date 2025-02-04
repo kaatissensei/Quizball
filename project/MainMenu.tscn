@@ -70,6 +70,7 @@ grow_vertical = 2
 color = Color(0.435294, 0.443137, 0.45098, 1)
 
 [node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -142,6 +143,7 @@ text = "Upload File"
 
 [node name="Progress Bar" type="ProgressBar" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(256, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,15 +182,6 @@ offset_bottom = -147.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0.964706, 0, 1)
 text = "Success!"
-
-[node name="Base64" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-offset_left = 4.0
-offset_right = 1151.0
-offset_bottom = 194.0
-text = "afgdsgdsgsdfg"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_open_fileDialog"]
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_file_dialog_file_selected"]

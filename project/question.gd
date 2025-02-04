@@ -15,6 +15,7 @@ func populate_text(category, question):#, q1, q2, q3):
 	#%Q3Btn.text = q3
 
 func _display_question(qNum):
+	print(questionArr[0])
 	var questionText
 	var answerText
 	match qNum:
