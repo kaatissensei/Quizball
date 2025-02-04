@@ -40,10 +40,12 @@ func _on_file_loaded(file_name: String, type: String, base64_data: String) -> vo
 	#progress.visible = false
 	#success_label.visible = true
 	#Main.csvFile = FileAccess.open(path,FileAccess.READ)
+	#
+	var raw_data: String = Marshalls.base64_to_utf8(base64_data)
 	#var string_data: String = base64_data.get_string_from_utf8()
 	
 	
-	%Base64.text = base64_data #WIP What data type does this need to be?
+	%Base64.text = raw_data #WIP What data type does this need to be?
 	#Main.parse_csv()
 	#get_tree().change_scene_to_file("res://Quiz_scene.tscn")
 
