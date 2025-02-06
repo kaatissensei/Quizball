@@ -16,6 +16,7 @@ func parse_csv():
 	while csvFile.get_position() < csvFile.get_length():
 		var csvLine = csvFile.get_csv_line()
 		questionArray.push_back(csvLine)
+	questionArray.pop_front()
 
 func parse_csv_string():
 	questionArray = csvFile.split(",")
