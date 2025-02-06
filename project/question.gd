@@ -9,13 +9,15 @@ func _ready() -> void:
 
 func populate_text(category, question):#, q1, q2, q3):
 	%CategoryText.text = category
-	questionArr = question
+	if question:
+		questionArr = question
+	else:
+		pass #questionArr = ["cat", "q1", "a1", "q2", "a2", "q3", "a3"]
 	#%Q1Btn.text = q1
 	#%Q2Btn.text = q2
 	#%Q3Btn.text = q3
 
 func _display_question(qNum):
-	print(questionArr[0])
 	var questionText
 	var answerText
 	match qNum:
@@ -33,11 +35,14 @@ func _display_question(qNum):
 			%Q3Btn.text = questionArr[5]
 			%Q3Btn.disabled = true
 			questionText = questionArr[5]
-			answerText = questionArr[6]
+			answerText = questionArr[6] 
 		_:
 			questionText = ""
 	var QuestionPopupNode = get_node("/root/Node2D/CanvasLayer/QuestionPopup")
 	#Main.popupQuestion(questionText)
 	QuestionPopupNode.visible = true
+	QuestionPopupNode.get_child(0).visible = true
+	QuestionPopupNode.get_child(1).visible = false
+	
 	QuestionPopupNode.get_child(0).text = questionText
 	QuestionPopupNode.get_child(1).text = answerText

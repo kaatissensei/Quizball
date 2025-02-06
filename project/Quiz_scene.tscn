@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3hwe2gd6qxkb"]
+[gd_scene load_steps=8 format=3 uid="uid://d3hwe2gd6qxkb"]
 
 [ext_resource type="Script" path="res://control.gd" id="1_nsyki"]
 [ext_resource type="Theme" uid="uid://oapuknnvc7yq" path="res://DefaultTheme.tres" id="1_yn8ge"]
 [ext_resource type="Texture2D" uid="uid://vyr12yblpf7f" path="res://images/oak_floor_tile.jpg" id="2_xw5gc"]
+[ext_resource type="Texture2D" uid="uid://d4jw84omtot1d" path="res://images/ui/btnFullscreenTrans.png" id="4_0pj1w"]
+[ext_resource type="Texture2D" uid="uid://unhdedp2ebgv" path="res://images/ui/btnFullscreen.png" id="5_4q24y"]
 
 [sub_resource type="Theme" id="Theme_noi8h"]
 
@@ -159,6 +161,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "This is a question."
+
+[node name="FulscreenBtn" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_right = 59.0
+offset_bottom = 100.0
+grow_horizontal = 0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_0pj1w")
+texture_hover = ExtResource("5_4q24y")
+stretch_mode = 5
+
+[node name="WebDebug" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "asfdafdsaf"
 
 [connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupQuestion" to="." method="_show_answer"]
 [connection signal="pressed" from="CanvasLayer/QuestionPopup/PopupAnswer" to="." method="_hide_question"]

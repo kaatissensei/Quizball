@@ -9,6 +9,7 @@ func populate_questions():
 	var questionArray = Main.questionArray
 	var questionScene = load("res://Question.tscn")
 	var qNum = 0
+	%WebDebug.text = Main.debug #questionArray[0][0]
 	for question in questionArray:
 		var questionBlock = questionScene.instantiate()
 		#var questionScript = questionBlock.get_script()
@@ -28,5 +29,8 @@ func _hide_question():
 	%QuestionPopup.visible = false
 	%PopupQuestion.visible = true
 	%PopupAnswer.visible = false
+
+		
+
 
 #Wood tile by bkh1914

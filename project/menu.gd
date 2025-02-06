@@ -38,17 +38,23 @@ func _on_progress(current_bytes: int, total_bytes: int) -> void:
 	#progress.value = percentage
 
 func _on_file_loaded(file_name: String, type: String, base64_data: String) -> void:
-	#progress.visible = false
-	#success_label.visible = true
-	#Main.csvFile = FileAccess.open(path,FileAccess.READ)
-	#
+
 	var utf8_data: String = Marshalls.base64_to_utf8(base64_data)
 	#var string_data: String = base64_data.get_string_from_utf8()
-	var file = FileAccess.open("user://CSV.csv", FileAccess.WRITE)
-	file.store_string(utf8_data)
-	Main.csvFile = FileAccess.open("user://CSV.csv", FileAccess.READ)
-	Main.parse_csv()
-	get_tree().change_scene_to_file("res://Quiz_scene.tscn")
+	var file = FileAccess.open("user://Quizball.csv", FileAccess.WRITE)
+	if FileAccess.file_exists("user://Quizball.csv"):
+		file.store_string(utf8_data)
+		file.close() #!!!!!!!!!!!
+		Main.csvFile = FileAccess.open("user://Quizball.csv", FileAccess.READ)
+		
+		Main.parse_csv()
+		get_tree().change_scene_to_file("res://Quiz_scene.tscn")
+	else:
+		%DebugText.text = "Can't find file."
+	
+	#%DebugText.text = utf8_data
+	
+	#WIP WHY MUST IT BE 5 Qs????
 
 func _on_error() -> void:
 	push_error("Error!")
@@ -60,3 +66,22 @@ func _on_button_2_pressed() -> void:
 
 func _start() -> void:
 	get_tree().change_scene_to_file("res://Quiz_scene.tscn")
+
+
+func _show_HowToCSV() -> void:
+	%HowToCSV.visible = true
+
+
+func _hide_HowToCSV() -> void:
+	%HowToCSV.visible = false
+	
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("Fullscreen"):
+		#var mode := DisplayServer.window_get_mode()
+		#var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
+		#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
+
+func _fullscreen():
+	var mode := DisplayServer.window_get_mode()
+	var is_window: bool = mode != DisplayServer.WINDOW_MODE_FULLSCREEN
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if is_window else DisplayServer.WINDOW_MODE_WINDOWED)
