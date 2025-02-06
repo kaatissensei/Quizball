@@ -50,7 +50,7 @@ func _on_file_loaded(file_name: String, type: String, base64_data: String) -> vo
 		Main.parse_csv()
 		get_tree().change_scene_to_file("res://Quiz_scene.tscn")
 	else:
-		%DebugText.text = "Can't find file."
+		pass#%DebugText.text = "Can't find file."
 	
 	#%DebugText.text = utf8_data
 	
