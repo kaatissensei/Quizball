@@ -48,4 +48,3 @@ func _create_texture_from(image: Image) -> ImageTexture:
 	var texture = ImageTexture.new()
 	texture.set_image(image)
 	return texture
-

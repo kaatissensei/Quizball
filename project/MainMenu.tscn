@@ -65,22 +65,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.760784, 0.407843, 0, 0.356863)
 
-[node name="WindowsUploadButton" type="Button" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -177.0
-offset_top = -202.0
-offset_right = 177.0
-offset_bottom = -113.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "Open .csv to Start"
-
 [node name="FileDialog" type="FileDialog" parent="CanvasLayer"]
 unique_name_in_owner = true
 title = "Open a File"
@@ -128,8 +112,15 @@ theme_override_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Margin Container"]
 layout_mode = 2
 
+[node name="WindowsUploadButton" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 30
+text = "Open .csv to Start"
+
 [node name="Upload Button" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -284,8 +275,20 @@ visible = false
 offset_right = 1148.0
 offset_bottom = 237.0
 
-[connection signal="pressed" from="CanvasLayer/WindowsUploadButton" to="." method="_open_fileDialog"]
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -66.0
+grow_horizontal = 0
+grow_vertical = 0
+
 [connection signal="file_selected" from="CanvasLayer/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="CanvasLayer/Margin Container/VBoxContainer/WindowsUploadButton" to="." method="_open_fileDialog"]
 [connection signal="pressed" from="CanvasLayer/Margin Container/VBoxContainer/HowToCsv" to="." method="_show_HowToCSV"]
 [connection signal="pressed" from="CanvasLayer/FulscreenBtn" to="." method="_fullscreen"]
 [connection signal="pressed" from="CanvasLayer/HowToCSV/ExitButton" to="." method="_hide_HowToCSV"]
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_load_my_csv"]

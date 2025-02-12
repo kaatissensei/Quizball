@@ -21,21 +21,24 @@ func _display_question(qNum):
 	var questionText
 	var answerText
 	match qNum:
-		1:
+		1: #3pts
 			%Q1Btn.text = questionArr[1] #set btn text = question
 			%Q1Btn.disabled = true
 			questionText = questionArr[1]
 			answerText = questionArr[2]
-		2:
+			Main.pointsToAdd = 3
+		2: #4pts
 			%Q2Btn.text = questionArr[3]
 			%Q2Btn.disabled = true
 			questionText = questionArr[3]
 			answerText = questionArr[4]
-		3:
+			Main.pointsToAdd = 4
+		3: #5pts
 			%Q3Btn.text = questionArr[5]
 			%Q3Btn.disabled = true
 			questionText = questionArr[5]
 			answerText = questionArr[6] 
+			Main.pointsToAdd = 5
 		_:
 			questionText = ""
 	var QuestionPopupNode = get_node("/root/Node2D/CanvasLayer/QuestionPopup")

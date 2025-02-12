@@ -30,6 +30,8 @@ func _hide_question():
 	%PopupQuestion.visible = true
 	%PopupAnswer.visible = false
 
+func _fullscreen():
+	Main.fullscreen()
 		
 
 
