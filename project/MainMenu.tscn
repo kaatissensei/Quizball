@@ -70,6 +70,7 @@ unique_name_in_owner = true
 title = "Open a File"
 initial_position = 1
 size = Vector2i(500, 500)
+visible = true
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -113,6 +114,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 
 [node name="WindowsUploadButton" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_0q210")
 theme_override_font_sizes/font_size = 30
@@ -120,7 +122,6 @@ text = "Open .csv to Start"
 
 [node name="Upload Button" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
