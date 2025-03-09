@@ -100,3 +100,11 @@ Disney Sidekicks:,Flounder,Ariel,Pascal,Rapunzel,Pua-Heihei,Moana,Raja,Jasmine
 Most popular sport:,US,Football,Australia,Australian Rules Football,Canada,Ice Hockey,,
 What anime?,Tsuyu Asui,My Hero Academia,Bachira Meguru,Blue Lock,Gyokuyo,Apothecary Diaries,Tenshinhan,Dragon Ball
 Song and Artist,The Dinner Song,晩餐歌 - tuki,Hundreds of millions of light years,幾億光年 - Omoinotake,Flower Song of the Monster,怪獣の花唄 - Vaundy,"Goodbye, see you again someday",さようならまたいつか　Genshi Yonezu"""
+
+
+func _hide_HowToPlay() -> void:
+	%HowToPlay.visible = false
+
+
+func _show_HowToPlay() -> void:
+	%HowToPlay.visible = true
