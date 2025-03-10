@@ -35,7 +35,8 @@ func _score():
 	_increase_score(Main.correctTeam)
 	%TheyShoot.visible = false
 	
-	
+func _close_score():
+	%TheyShoot.visible = false
 
 #Subtract 2 from leading team
 func _minusTwo() -> void:

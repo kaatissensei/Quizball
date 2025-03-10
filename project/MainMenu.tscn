@@ -89,8 +89,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -71.0
-offset_bottom = 70.0
+offset_top = -95.0
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -108,13 +108,13 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -255.0
-offset_bottom = -95.0
+offset_top = -430.0
+offset_bottom = -155.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/margin_left = 350
+theme_override_constants/margin_left = 500
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 350
+theme_override_constants/margin_right = 500
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Margin Container"]
@@ -134,13 +134,15 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme = ExtResource("4_0q210")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 text = "Upload .csv to Start"
 
 [node name="HowToPlay" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxFlat_lsmgq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2yjhw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rj8hn")
@@ -150,7 +152,9 @@ text = "How to Play"
 [node name="HowToCsv" type="Button" parent="CanvasLayer/Margin Container/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxFlat_lsmgq")
 theme_override_styles/hover = SubResource("StyleBoxFlat_2yjhw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rj8hn")
@@ -220,16 +224,18 @@ offset_right = 1148.0
 offset_bottom = 237.0
 
 [node name="Example" type="Button" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 75)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -173.0
-offset_top = -49.0
+offset_left = -258.0
+offset_top = -75.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("4_0q210")
+theme_override_font_sizes/font_size = 32
 text = "View Example"
 
 [node name="HowToCSV" type="Panel" parent="CanvasLayer"]
@@ -334,7 +340,7 @@ size_flags_vertical = 6
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("9_4h8fb")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "How to Play"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -344,10 +350,9 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 theme = ExtResource("10_ma03y")
-current_tab = 1
+current_tab = 0
 
 [node name="Prep" type="VBoxContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -355,7 +360,7 @@ metadata/_tab_index = 0
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 42
 text = "Before Class"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -365,7 +370,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 36
 text = "・Get a small box or basket and a ball. Use a very soft ball or make one out of paper and duct tape. 
      Some students will throw it way too hard.
 ・(Optional) Make standing cards with numbers to make it easier to remember which group is which.
@@ -376,7 +381,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 42
 text = "Start of Class"
 vertical_alignment = 1
 autowrap_mode = 3
@@ -386,7 +391,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 36
 text = "・In class, make groups of 3-5 students. Decide the order of each group.
 ・Put the box/basket near the door. (I leave a little space between the box and the door to make bank 
      shots harder.)
@@ -395,6 +400,7 @@ text = "・In class, make groups of 3-5 students. Decide the order of each group
 autowrap_mode = 3
 
 [node name="Play" type="ScrollContainer" parent="CanvasLayer/HowToPlay/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -420,7 +426,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 theme = ExtResource("10_ma03y")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "・The first student of each group stands up. Do rock-paper-scissors.
 ・The winner gets 1 point then chooses a category and a point value (like Jeopardy).
 ・Read the question. The first student to raise their hand and correctly answer the question gets the points and a 

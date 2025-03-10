@@ -5,4 +5,4 @@
 [resource]
 default_base_scale = 1.0
 default_font = ExtResource("1_pdl16")
-default_font_size = 50
+default_font_size = 38

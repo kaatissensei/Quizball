@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvl2max0ky5q8"]
 
-[ext_resource type="Theme" uid="uid://oapuknnvc7yq" path="res://DefaultTheme.tres" id="1_dfe8x"]
 [ext_resource type="Script" path="res://question.gd" id="1_gw14w"]
+[ext_resource type="Theme" uid="uid://bjmqpdhlv0nm2" path="res://Question.tres" id="3_cwbkc"]
 [ext_resource type="Theme" uid="uid://53jd5qkmd5lx" path="res://gameBtn.tres" id="3_sw02b"]
 
 [sub_resource type="FontVariation" id="FontVariation_4qh7i"]
@@ -27,16 +27,16 @@ layout_mode = 2
 
 [node name="CategoryText" type="Label" parent="QuestionContainer/VBox"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 theme = ExtResource("3_sw02b")
 theme_override_fonts/font = SubResource("FontVariation_4qh7i")
-theme_override_font_sizes/font_size = 25
 text = "How many..."
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
 
 [node name="Question1" type="HBoxContainer" parent="QuestionContainer/VBox"]
 unique_name_in_owner = true
@@ -47,7 +47,7 @@ size_flags_stretch_ratio = 2.0
 [node name="Points" type="Label" parent="QuestionContainer/VBox/Question1"]
 visible = false
 layout_mode = 2
-theme = ExtResource("1_dfe8x")
+theme = ExtResource("3_cwbkc")
 text = "3
 "
 horizontal_alignment = 1
@@ -70,7 +70,7 @@ size_flags_stretch_ratio = 2.0
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme = ExtResource("1_dfe8x")
+theme = ExtResource("3_cwbkc")
 text = "3
 "
 horizontal_alignment = 1
@@ -93,7 +93,7 @@ size_flags_stretch_ratio = 2.0
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme = ExtResource("1_dfe8x")
+theme = ExtResource("3_cwbkc")
 text = "3
 "
 horizontal_alignment = 1

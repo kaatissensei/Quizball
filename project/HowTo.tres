@@ -4,6 +4,6 @@
 bg_color = Color(0.182411, 0.178519, 0.170735, 1)
 
 [resource]
-default_font_size = 30
+default_font_size = 50
 TabBar/constants/h_separation = 10
 TabBar/styles/tab_selected = SubResource("StyleBoxFlat_74urn")
