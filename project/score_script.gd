@@ -15,7 +15,7 @@ func _increase_score(teamNum):
 	var btn = "Team%d" % teamNum
 	get_node(btn).get_child(0).get_node("Score").text = str(scores[teamNum - 1])
 	
-	Main.pointsToAdd = 1
+	Main.pointsToAdd = 2
 		
 	%TheyShoot.visible = true
 
